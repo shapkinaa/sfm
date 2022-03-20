@@ -53,6 +53,7 @@ impl DirItem {
 
 impl ToSpans for DirItem {
     fn to_spans(&self, _area: Rect, show_icons: bool) -> Spans {
+        /*
         if show_icons {
             Spans::from(vec![
                 Span::from("  "),
@@ -78,5 +79,10 @@ impl ToSpans for DirItem {
                 Span::from(self.name.clone()),
             ])
         }
+        */
+        Spans::from(vec![
+            Span::from("  /"),
+            Span::from(self.name.clone()),
+        ])
     }
 }

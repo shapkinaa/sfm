@@ -1,6 +1,7 @@
 use std::{
     fs::{self, File},
     path::Path,
+    cmp
 };
 use std::{io, path::PathBuf};
 
@@ -60,7 +61,13 @@ impl FileSystem for PhysicalFileSystem {
                     }
                 }
 
-                result.sort_by(|one, two| one.get_name().cmp(&two.get_name()));
+                // result.sort_by(|one, two| one.get_name().cmp(&two.get_name()));
+                result.sort_by(|one, two| {
+                    match one.is_file().cmp(&two.is_file()) {
+                        cmp::Ordering::Equal => one.get_name().cmp(&two.get_name()),
+                        other => other
+                    }
+                });
 
                 result
             }

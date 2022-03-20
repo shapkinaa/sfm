@@ -49,6 +49,7 @@ impl SymlinkItem {
 
 impl ToSpans for SymlinkItem {
     fn to_spans(&self, _area: Rect, show_icons: bool) -> Spans {
+        /*
         if show_icons {
             Spans::from(vec![
                 Span::from("  "),
@@ -78,5 +79,13 @@ impl ToSpans for SymlinkItem {
                 Span::from(self.target.to_str().unwrap_or("")),
             ])
         }
+        */
+        Spans::from(vec![
+            Span::from("  @"),
+            Span::from(self.name.clone()),
+            Span::from(" -> "),
+            Span::from(self.target.to_str().unwrap_or("")),
+        ])
+
     }
 }
