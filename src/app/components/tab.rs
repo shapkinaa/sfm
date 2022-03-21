@@ -723,7 +723,7 @@ impl<TFileSystem: Clone + Debug + Default + FileSystem>
                 };
 
                 let block = Block::default()
-                    .title(if show_icons {
+                    .title(/*if show_icons {
                         Spans::from(vec![
                             Span::from("| "),
                             Span::from(state.icon),
@@ -737,7 +737,13 @@ impl<TFileSystem: Clone + Debug + Default + FileSystem>
                             Span::from(state.name),
                             Span::from(" |"),
                         ])
-                    })
+                    }*/
+                    Spans::from(vec![
+                        Span::from("| "),
+                        Span::from(state.name),
+                        Span::from(" |"),
+                    ])
+                    )
                     .borders(Borders::ALL)
                     .border_style(border_style)
                     .border_type(tui::widgets::BorderType::Thick)

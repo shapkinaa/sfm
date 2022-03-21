@@ -48,7 +48,8 @@ where
     pub fn dispatch(&mut self, action: TAction) {
         if self.middlewares.is_empty() == false {
             self.dispatch_middlewares(0, action);
-        } else {
+        }
+        else {
             self.state = self.dispatch_reducer(action);
         }
         self.mark_as_dirty();
